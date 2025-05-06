@@ -1,0 +1,14 @@
+# Simples docker-compose.yml para uptime kuma
+# Deivid Schlosser Onório 29/04/2025
+
+services:
+  monitoramento:
+    image: louislam/uptime-kuma:beta
+    container_name: monitoramento
+    hostname: monitoramento
+    volumes:
+      - ./uptime-kuma-data:/app/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 3001:3001
+    restart: always
